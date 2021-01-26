@@ -14,4 +14,5 @@ function makeCall(id){
 function getPokemon(){
     let this_id = document.getElementById("idBox").value;
     makeCall(this_id);
+    console.log(`You request pokemone number ${this_is}`);
 }
