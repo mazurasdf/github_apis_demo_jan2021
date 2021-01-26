@@ -1,0 +1,53 @@
+NOTE: if you are on a mac, make sure that you use the python3 command rather than just python
+
+1. Have a virtual environment ready for Django. Create and activate the environment.
+    1.5 Check out this page on virtual environment commands: http://learn.codingdojo.com/m/119/6127/42500
+
+2. Ensure Django is installed. Check "pip list" or run "pip install Django==2.2.4"
+
+3. Once you are sure your environment is active and Django is installed, navigate to the folder where you want your project
+
+4. Run "django-admin startproject name_of_proj"
+
+5. Navigate into /name_of_proj, run "ls" or "dir" to ensure you can see manage.py
+
+6. Run "python manage.py runserver" and check localhost:8000 to see the basic Django screen.
+    6.5 If you don't see the basic Django screen then check over to make sure you missed nothing
+
+7. ctrl+c to quit your server. Then run "python manage.py startapp name_of_app"
+
+8. Open the main project folder(the one holding manage.py) in VS Code
+
+9. Open name_of_proj/settings.py
+
+10. Add 'name_of_app' to list of INSTALLED_APPS
+
+11. Open name_of_proj/urls.py
+
+12. Make sure all the code matches the following(double check if you renamed the app):
+from django.urls import path, include
+
+urlpatterns = [
+    path('', include('name_of_app.urls'))
+]
+
+13. Create a new file within the name_of_app folder. Call the file "urls.py"
+
+14. The code in this file should match the following exactly:
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index),
+]
+
+
+15. Open name_of_app/views.py
+
+16. views.py should match the following code exactly:
+from django.shortcuts import render, HttpResponse
+
+def index(request):
+    return HttpResponse("hello from the Django app!")
+
+17. Run the file from the same folder as manage.py again. "python manage.py runserver" and check in your browser at localhost:8000

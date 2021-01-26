@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <script src="{%static 'js/fetching.js'%}"></script>
+</head>
+<body>
+    <h1 id="pkmnName"></h1>
+
+    <input type="number" id="idBox" placeholder="enter an id"/>
+    <button onclick="getPokemon()" id="pkButton">find name</button>
+</body>
+</html>
